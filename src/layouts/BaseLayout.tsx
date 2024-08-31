@@ -1,12 +1,12 @@
 import { Grid, SxProps } from "@mui/material";
 import { ReactNode } from "react";
+import Footer from "../components/Footer.tsx";
 import NavBar from "../components/NavBar.tsx";
 
 
 const gridStyle = (color: string): SxProps => ({
   backgroundColor: color ?? "transparent",
   width: 1,
-  height: 100,
 });
 
 interface Props {
@@ -25,13 +25,14 @@ export default function BaseLayout(props: Props) {
         height: '100svh',
       }}
     >
-      <Grid sx={gridStyle("red")} >
+      <Grid item sx={gridStyle("")} >
         <NavBar />
       </Grid>
-      <Grid sx={gridStyle("blue")} xs >
+      <Grid item sx={gridStyle("")} xs >
         {props.children}
       </Grid>
-      <Grid sx={gridStyle("red")} >
+      <Grid item sx={gridStyle("")} >
+        <Footer />
       </Grid>
     </Grid>
   );

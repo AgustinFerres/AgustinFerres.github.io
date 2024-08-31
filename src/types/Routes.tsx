@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { NavigateFunction } from "react-router-dom";
 import Home from "../routes/Home.tsx";
 import EnumMap from "./EnumMap.ts";
 
@@ -17,7 +18,17 @@ export enum Routes {
 
 export const routes = new EnumMap<Routes, Route>({
   [Routes.HOME]: {
-    path: "/",
+    path: Routes.HOME,
     element: <Home />,
+
+  },
+  [Routes.F_INTERVIEW]: {
+    path: Routes.F_INTERVIEW,
+    element: undefined,
   },
 });
+
+
+export function navigateTo(route: Routes, navigate: NavigateFunction) {
+  navigate(route ?? Routes.HOME);
+}
